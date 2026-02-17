@@ -1,4 +1,4 @@
-import { test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
 test('Browser Context Playwright test', async ({ browser }) => {
 
@@ -10,8 +10,9 @@ test('Browser Context Playwright test', async ({ browser }) => {
 });
 
 
-test('Page Playwright test', async ({ page }) => {
+test.only('Page Playwright test', async ({ page }) => {
 
     await page.goto("https://google.com")
+    await expect(page).toHaveTitle('Google')
 
 });
