@@ -9,6 +9,7 @@ test.only('Browser Context Playwright test', async ({ browser }) => {
 
     const username = page.locator('#username');
     const signInButton = page.locator('#signInBtn');
+    const cardTitles = page.locator('.card-body a');
 
     await username.fill('rahulshetty');
     await page.locator("[type='password']").fill('Learning@830$3mK2');
@@ -19,6 +20,9 @@ test.only('Browser Context Playwright test', async ({ browser }) => {
     await username.fill('');
     await username.fill('rahulshettyacademy');
     await signInButton.click();
+
+    console.log(await cardTitles.first().textContent());
+    console.log(await cardTitles.nth(1).textContent());
 
 });
 
