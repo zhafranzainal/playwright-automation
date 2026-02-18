@@ -24,6 +24,10 @@ test.only('Browser Context Playwright test', async ({ browser }) => {
     console.log(await cardTitles.first().textContent());
     console.log(await cardTitles.nth(1).textContent());
 
+    // allTextContents() does not auto-wait for elements to appear, but textContent() does
+    const allTitles = await cardTitles.allTextContents();
+    console.log(allTitles);
+
 });
 
 
